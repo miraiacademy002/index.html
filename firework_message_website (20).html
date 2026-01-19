@@ -209,9 +209,9 @@ function createParticles(text, yOffset, colorFn) {
   }
 }
   // Create first line particles (slightly higher)
-createParticles(mainTextLine1,-70, x => x < canvas.width / 2 ? 'hsl(45,100%,60%)' : 'hsl(330,100%,65%)', () => 'yellow');
+createParticles(mainTextLine1,-80, x => x < canvas.width / 2 ? 'hsl(45,100%,60%)' : 'hsl(330,100%,65%)', () => 'yellow');
 // Create second line particles (below the first line)
-createParticles(mainTextLine2, -70, x => x < canvas.width / 2 ? 'hsl(45,100%,60%)' : 'hsl(330,100%,65%)', () => 'yellow');
+createParticles(mainTextLine2, -80, x => x < canvas.width / 2 ? 'hsl(45,100%,60%)' : 'hsl(330,100%,65%)', () => 'yellow');
 createParticles(subLines[0], 30, () => 'hsl(200,100%,70%)');
 createParticles(subLines[1], 80, () => 'hsl(200,100%,70%)');
 createParticles(subLines[2], 130, () => 'hsl(200,100%,70%)');
