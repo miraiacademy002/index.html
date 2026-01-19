@@ -14,7 +14,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: repeat;
- 
+  background-attachment: fixed;
 }
 
 
@@ -133,7 +133,7 @@ function resize() {
 window.addEventListener('resize', resize);
 resize();
 
-const mainText = "BRING ME BACK MY BEE", "MY WOMAN";
+const mainText = "BRING ME BACK MY BEE, MY WOMAN";
 const subLines = ["I DIDN’T GIVE UP.", "I’M STILL HERE.", "I’M STILL CHOOSING YOU."];
 let particles = [];
 let phase = 'explode';
@@ -187,7 +187,7 @@ function createParticles(text, yOffset, colorFn) {
   offCtx.fillStyle = 'white';
   offCtx.textAlign = 'center';
   offCtx.textBaseline = 'middle';
-  offCtx.font = '600 ' + Math.min(canvas.width / 12, 34) + 'px "Times New Roman"';
+  offCtx.font = '600 ' + Math.min(canvas.width / 10, 44) + 'px "Times New Roman"';
   offCtx.fillText(text, canvas.width / 2, canvas.height / 2 + yOffset);
 
   const data = offCtx.getImageData(0, 0, off.width, off.height).data;
