@@ -77,8 +77,9 @@ function resize() {
 window.addEventListener('resize', resize);
 resize();
 
-const mainTextLine1 = "BRING ME BACK MY BEE";
-const mainTextLine2 = "MY WOMAN";
+const mainTextLine1 = "BRING ME BACK";
+const mainTextLine2 = "MY BEE";
+const mainTextLine3 = "MY WOMAN";
 let particles = [];
 let phase = 'explode';
 let timer = 0;
@@ -157,6 +158,7 @@ function createParticles(text, yOffset, colorFn) {
 // Two lines high at the top
 createParticles(mainTextLine1, -250, () => 'yellow');
 createParticles(mainTextLine2, -200, () => 'yellow');
+  createParticles(mainTextLine3, -150, () => 'yellow');
 
 function drawBackgroundPulse() {
   heartbeat += 0.03;
