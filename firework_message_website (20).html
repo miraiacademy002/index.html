@@ -4,69 +4,110 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>I Didn't Give Up</title>
-  <!-- Example Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
   <style>
     html, body {
-      margin: 0;
-      min-height: 100vh;
-      overflow: hidden;
-      font-family: 'Montserrat', sans-serif;
-      background: none;
-    }
+  margin: 0;
+  min-height: 100vh;
+  overflow: hidden;
+  font-family: 'Times New Roman', Times, serif;
+  background-image: none;
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+  background-attachment: fixed;
+}
 
-    canvas {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 2;
-      pointer-events: none;
-      background: transparent;
-    }
 
-    .call-btn {
-      position: absolute;
-      left: 50%;
-      top: 85%;
-      transform: translateX(-50%);
-      padding: 16px 32px;
-      border-radius: 999px;
-      text-decoration: none;
-      letter-spacing: 2px;
-      font-weight: 600;
-      font-size: 14px;
-      color: #fff;
-      background: linear-gradient(135deg, #ff6aa2, #ffd36a);
-      box-shadow: 0 0 30px rgba(255,160,200,.6), inset 0 0 10px rgba(255,255,255,.4);
-      transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
-      z-index: 3;
-    }
 
-    @media (min-width: 768px){
-      .call-btn {
-        top: 82%;
-        font-size: 16px;
-      }
-    }
 
-    .call-btn:hover { transform: translateX(-50%) scale(1.05); filter: brightness(1.05); }
-    .call-btn:active { transform: translateX(-50%) scale(.98); box-shadow: 0 0 18px rgba(255,160,200,.8); }
+    canvas{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+  background: transparent;
+} .garden{position:fixed; inset:0; width:100%; height:100%; z-index:0;}
+  </style>
+  <style>
+   
+}
+  </style>
+  <style>
+    .call-btn{
+  position:absolute;
+  left:50%;
+  top:85%;
+  transform:translateX(-50%);
+  padding:16px 32px;
+  border-radius:999px;
+  text-decoration:none;
+  letter-spacing:2px;
+  font-weight:600;
+  font-size:14px;
+  color:#fff;
+  background:linear-gradient(135deg, #ff6aa2, #ffd36a);
+  box-shadow:0 0 30px rgba(255,160,200,.6), inset 0 0 10px rgba(255,255,255,.4);
+  transition:transform .15s ease, box-shadow .15s ease, filter .15s ease;
+  z-index:3;
+}
+
+@media (min-width: 768px){
+  .call-btn{
+    top:82%;
+    font-size:16px;
+  }
+}
+    .call-btn:hover{ transform:translateX(-50%) scale(1.05); filter:brightness(1.05); }
+    .call-btn:active{ transform:translateX(-50%) scale(.98); box-shadow:0 0 18px rgba(255,160,200,.8); }
   </style>
 </head>
 <body>
 
 <canvas id="canvas"></canvas>
 
-<a href="tel:+213673278765" class="call-btn" onclick="fallbackCall()">PRESS ME</a>
+<!-- Stitch with purple flowers -->
+<svg class="bouquet" viewBox="0 0 220 260" xmlns="http://www.w3.org/2000/svg">
+  
 
+  <!-- purple flowers -->
+  <g fill="#a855f7">
+    <circle cx="80" cy="110" r="12" />
+    <circle cx="95" cy="95" r="12" />
+    <circle cx="110" cy="110" r="12" />
+    <circle cx="125" cy="95" r="12" />
+    <circle cx="140" cy="110" r="12" />
+
+    <circle cx="95" cy="125" r="10" />
+    <circle cx="110" cy="130" r="10" />
+    <circle cx="125" cy="125" r="10" />
+  </g>
+
+  <!-- centers -->
+  <g fill="#facc15">
+    <circle cx="80" cy="110" r="4" />
+    <circle cx="95" cy="95" r="4" />
+    <circle cx="110" cy="110" r="4" />
+    <circle cx="125" cy="95" r="4" />
+    <circle cx="140" cy="110" r="4" />
+    <circle cx="95" cy="125" r="3" />
+    <circle cx="110" cy="130" r="3" />
+    <circle cx="125" cy="125" r="3" />
+  </g>
+</svg>
+
+  <a href="tel:+213673278765" class="call-btn" onclick="fallbackCall()">PRESS ME</a>
 <script>
 function fallbackCall(){
-  setTimeout(() => {
+  // Fallback for environments that block tel: links
+  setTimeout(()=>{
     alert('Call this number: +213 673 278 765');
   }, 300);
 }
+</script>
 
+<script>
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
@@ -76,10 +117,10 @@ function resize() {
 }
 window.addEventListener('resize', resize);
 resize();
-
 const mainTextLine1 = "BRING ME BACK";
-const mainTextLine2 = "MY BEE";
-const mainTextLine3 = "MY WOMAN";
+const mainTextLine2 = " MY BEE";
+  const mainTextLine = "MY WOMAN";
+const subLines = ["I DIDN’T GIVE UP.", "I’M STILL HERE.", "I STILL CHOOSE U."];
 let particles = [];
 let phase = 'explode';
 let timer = 0;
@@ -126,15 +167,13 @@ class Particle {
 function createParticles(text, yOffset, colorFn) {
   const off = document.createElement('canvas');
   const offCtx = off.getContext('2d');
-  const fontSize = window.innerWidth < 768 ? 30 : 50; // 30px on mobile, 50px on desktop
- 
   off.width = canvas.width;
   off.height = canvas.height;
 
   offCtx.fillStyle = 'white';
   offCtx.textAlign = 'center';
   offCtx.textBaseline = 'middle';
-  offCtx.font = `500 ${fontSize}px "Times New Roman"`;
+  offCtx.font = '500 ' + Math.min(canvas.width / 10, 44) + 'px "Times New Roman"';
   offCtx.fillText(text, canvas.width / 2, canvas.height / 2 + yOffset);
 
   const data = offCtx.getImageData(0, 0, off.width, off.height).data;
@@ -155,10 +194,12 @@ function createParticles(text, yOffset, colorFn) {
   }
 }
 
-// Two lines high at the top
-createParticles(mainTextLine1, -250, () => 'yellow');
-createParticles(mainTextLine2, -200, () => 'yellow');
-  createParticles(mainTextLine3, -150, () => 'yellow');
+createParticles(mainTextLine1, -200, () => 'yellow');
+createParticles(mainTextLine2, -150, () => 'yellow');
+createParticles(mainTextLine3, -100, () => 'yellow');
+createParticles(subLines[0], 30, () => 'hsl(200,100%,70%)');
+createParticles(subLines[1], 80, () => 'hsl(200,100%,70%)');
+createParticles(subLines[2], 130, () => 'hsl(200,100%,70%)');
 
 function drawBackgroundPulse() {
   heartbeat += 0.03;
@@ -178,11 +219,18 @@ function drawAmbientSparks() {
 
 function loop() {
   drawBackgroundPulse();
-  particles.forEach(p => { p.update(); p.draw(); });
+
+  particles.forEach(p => {
+    p.update();
+    p.draw();
+  });
+
   drawAmbientSparks();
+
   timer++;
   if (timer === 90) phase = 'form';
   if (timer > 260) phase = 'done';
+
   requestAnimationFrame(loop);
 }
 
