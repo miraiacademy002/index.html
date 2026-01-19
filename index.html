@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>I Didn't Give Up</title>
   <style>
     html, body {
@@ -10,7 +10,7 @@
   min-height: 100vh;
   overflow: hidden;
   font-family: 'Palatino Linotype', 'Book Antiqua', 'Georgia', serif;
-  background-image: url('./images.jpg');
+  background-image: url('./download.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: repeat;
@@ -34,31 +34,46 @@
     .bouquet{
   position:absolute;
   left:50%;
-  top:8%;
+  top:6%;
   transform:translateX(-50%);
-  width:170px;
+  width:140px;
   opacity:.95;
-  filter:drop-shadow(0 0 25px rgba(168,85,247,.6));
+  filter:drop-shadow(0 0 20px rgba(168,85,247,.6));
   z-index:2;
+}
+
+@media (min-width: 768px){
+  .bouquet{
+    width:170px;
+    top:8%;
+  }
 }
   </style>
   <style>
     .call-btn{
-      position:absolute;
-      left:50%;
-      top:82%;
-      transform:translateX(-50%);
-      padding:14px 28px;
-      border-radius:999px;
-      text-decoration:none;
-      letter-spacing:2px;
-      font-weight:600;
-      color:#fff;
-      background:linear-gradient(135deg, #ff6aa2, #ffd36a);
-      box-shadow:0 0 30px rgba(255,160,200,.6), inset 0 0 10px rgba(255,255,255,.4);
-      transition:transform .15s ease, box-shadow .15s ease, filter .15s ease;
-      z-index:3;
-    }
+  position:absolute;
+  left:50%;
+  top:85%;
+  transform:translateX(-50%);
+  padding:16px 32px;
+  border-radius:999px;
+  text-decoration:none;
+  letter-spacing:2px;
+  font-weight:600;
+  font-size:14px;
+  color:#fff;
+  background:linear-gradient(135deg, #ff6aa2, #ffd36a);
+  box-shadow:0 0 30px rgba(255,160,200,.6), inset 0 0 10px rgba(255,255,255,.4);
+  transition:transform .15s ease, box-shadow .15s ease, filter .15s ease;
+  z-index:3;
+}
+
+@media (min-width: 768px){
+  .call-btn{
+    top:82%;
+    font-size:16px;
+  }
+}
     .call-btn:hover{ transform:translateX(-50%) scale(1.05); filter:brightness(1.05); }
     .call-btn:active{ transform:translateX(-50%) scale(.98); box-shadow:0 0 18px rgba(255,160,200,.8); }
   </style>
@@ -172,7 +187,7 @@ function createParticles(text, yOffset, colorFn) {
   offCtx.fillStyle = 'white';
   offCtx.textAlign = 'center';
   offCtx.textBaseline = 'middle';
-  offCtx.font = '500 ' + Math.min(canvas.width / 13, 62) + 'px Palatino Linotype';
+  offCtx.font = '500 ' + Math.min(canvas.width / 10, 46) + '
   offCtx.fillText(text, canvas.width / 2, canvas.height / 2 + yOffset);
 
   const data = offCtx.getImageData(0, 0, off.width, off.height).data;
@@ -235,3 +250,4 @@ loop();
 </script>
 </body>
 </html>
+
