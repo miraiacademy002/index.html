@@ -118,8 +118,10 @@ function resize() {
 window.addEventListener('resize', resize);
 resize();
 
-const mainText = "BRING ME BACK MY BEE, MY WOMAN";
-const subLines = ["I DIDN’T GIVE UP.", "I’M STILL HERE.", "I’M STILL CHOOSING YOU."];
+const mainTextline1 = "BRING ME BACK";
+const mainTextline2 = "MY BEE";
+const mainTextline3 = "MY WOMAN";
+const subLines = ["I DIDN’T GIVE UP.", "I’M STILL HERE.", "I STILL CHOOSE U."];
 let particles = [];
 let phase = 'explode';
 let timer = 0;
@@ -172,7 +174,7 @@ function createParticles(text, yOffset, colorFn) {
   offCtx.fillStyle = 'white';
   offCtx.textAlign = 'center';
   offCtx.textBaseline = 'middle';
-  offCtx.font = '500 ' + Math.min(canvas.width / 13, 62) + 'px Palatino Linotype';
+  offCtx.font = '500 ' + Math.min(canvas.width / 1, 500) + 'px Times New Roman';
   offCtx.fillText(text, canvas.width / 2, canvas.height / 2 + yOffset);
 
   const data = offCtx.getImageData(0, 0, off.width, off.height).data;
@@ -193,7 +195,9 @@ function createParticles(text, yOffset, colorFn) {
   }
 }
 
-createParticles(mainText, -90, x => x < canvas.width / 2 ? 'hsl(45,100%,60%)' : 'hsl(330,100%,65%)');
+createParticles(mainTextLine1, -90, x => x < canvas.width / 2 ? 'hsl(45,100%,60%)' : 'hsl(330,100%,65%)',() => 'yellow');
+  createParticles(mainTextLine2, -80, x => x < canvas.width / 2 ? 'hsl(45,100%,60%)' : 'hsl(330,100%,65%)',() => 'yellow');
+  createParticles(mainTextLine3, -70, x => x < canvas.width / 2 ? 'hsl(45,100%,60%)' : 'hsl(330,100%,65%)',() => 'yellow');
 createParticles(subLines[0], 30, () => 'hsl(200,100%,70%)');
 createParticles(subLines[1], 80, () => 'hsl(200,100%,70%)');
 createParticles(subLines[2], 130, () => 'hsl(200,100%,70%)');
