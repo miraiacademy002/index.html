@@ -132,8 +132,8 @@ function resize() {
 }
 window.addEventListener('resize', resize);
 resize();
-
-const mainText = "BRING ME BACK MY BEE , MY WOMAN";
+const mainTextLine1 = "BRING ME BACK MY BEE";
+const mainTextLine2 = "MY WOMAN";
 const subLines = ["I DIDN’T GIVE UP.", "I’M STILL HERE.", "I’M STILL CHOOSING YOU."];
 let particles = [];
 let phase = 'explode';
@@ -208,7 +208,8 @@ function createParticles(text, yOffset, colorFn) {
   }
 }
 
-createParticles(mainText, -90, x => x < canvas.width / 2 ? 'hsl(45,100%,60%)' : 'hsl(330,100%,65%)');
+createParticles(mainTextLine1, -30, () => 'yellow');
+createParticles(mainTextLine2, 30, () => 'yellow');
 createParticles(subLines[0], 30, () => 'hsl(200,100%,70%)');
 createParticles(subLines[1], 80, () => 'hsl(200,100%,70%)');
 createParticles(subLines[2], 130, () => 'hsl(200,100%,70%)');
