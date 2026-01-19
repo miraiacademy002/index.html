@@ -172,7 +172,7 @@ function createParticles(text, yOffset, colorFn) {
   offCtx.fillStyle = 'white';
   offCtx.textAlign = 'center';
   offCtx.textBaseline = 'middle';
-  offCtx.font = '600 ' + Math.min(canvas.width / 10, 44) + 'px "Times New Roman"';
+  offCtx.font = '500 ' + Math.min(canvas.width / 10, 44) + 'px "Times New Roman"';
   offCtx.fillText(text, canvas.width / 2, canvas.height / 2 + yOffset);
 
   const data = offCtx.getImageData(0, 0, off.width, off.height).data;
