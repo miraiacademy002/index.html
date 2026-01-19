@@ -209,9 +209,9 @@ function createParticles(text, yOffset, colorFn) {
   }
 }
   // Create first line particles (slightly higher)
-createParticles(mainTextLine1, -30, () => 'yellow');
+createParticles(mainTextLine1, -200, () => 'yellow');
 // Create second line particles (below the first line)
-createParticles(mainTextLine2, 30, () => 'yellow');
+createParticles(mainTextLine2, -150, () => 'yellow');
 createParticles(subLines[0], 30, () => 'hsl(200,100%,70%)');
 createParticles(subLines[1], 80, () => 'hsl(200,100%,70%)');
 createParticles(subLines[2], 130, () => 'hsl(200,100%,70%)');
