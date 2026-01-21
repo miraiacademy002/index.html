@@ -118,9 +118,10 @@ function resize() {
 window.addEventListener('resize', resize);
 resize();
 
-const mainTextline1 = "BRING ME BACK MY BEE";
-const mainTextline2 = "MY WOMAN";
-const subLines = ["I DIDN’T GIVE UP.", "I’M STILL HERE.", "I’M STILL CHOOSING YOU."];
+const mainTextline1 = "BRING ME BACK";
+const mainTextline2 = "MY BEE";
+const mainTextline3 = "MY WOMAN";
+const subLines = ["I DIDN’T GIVE UP.", "I’M STILL HERE.", "I STILL CHOOSE U."];
 let particles = [];
 let phase = 'explode';
 let timer = 0;
@@ -193,8 +194,9 @@ function createParticles(text, yOffset, colorFn) {
     }
   }
 }
-createParticles(mainTextLine1,-90, x => x < canvas.width / 2 ? 'hsl(45,100%,60%)' : 'hsl(330,100%,65%)', () => 'yellow');
-createParticles(mainTextLine2, -50, x => x < canvas.width / 2 ? 'hsl(45,100%,60%)' : 'hsl(330,100%,65%)', () => 'yellow');
+createParticles(mainTextLine1, -90, x => x < canvas.width / 2 ? 'hsl(45,100%,60%)' : 'hsl(330,100%,65%)',() => 'yellow');
+  createParticles(mainTextLine2, -80, x => x < canvas.width / 2 ? 'hsl(45,100%,60%)' : 'hsl(330,100%,65%)',() => 'yellow');
+  createParticles(mainTextLine3, -70, x => x < canvas.width / 2 ? 'hsl(45,100%,60%)' : 'hsl(330,100%,65%)',() => 'yellow');
 createParticles(subLines[0], 30, () => 'hsl(200,100%,70%)');
 createParticles(subLines[1], 80, () => 'hsl(200,100%,70%)');
 createParticles(subLines[2], 130, () => 'hsl(200,100%,70%)');
